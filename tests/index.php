@@ -20,13 +20,13 @@ $router
 $router
   ->attach('\ZaphpaTestScopedMiddleware')
   ->restrict('prerender', '*', '/foo')
-  ->restrict('prerender', array('put'), '/foo/bar');
+  ->restrict('prerender', array('PUT'), '/foo/bar');
 
 $router->addRoute(array(
   'path' => '/users',
-  'get'  => array('\TestController', 'getTestJsonResponse'),
-  'put'  => array('\TestController', 'getTestJsonResponse'),
-  'post' => array('\TestController', 'getTestJsonResponse'),
+  'GET'  => array('\TestController', 'getTestJsonResponse'),
+  'PUT'  => array('\TestController', 'getTestJsonResponse'),
+  'POST' => array('\TestController', 'getTestJsonResponse'),
 ));
 
 $router->addRoute(array(
@@ -34,14 +34,14 @@ $router->addRoute(array(
   'handlers' => array(
     'id'       => \Zaphpa\Constants::PATTERN_DIGIT,
   ),
-  'get'      => array('\TestController', 'getTestJsonResponse'),
-  'post'     => array('\TestController', 'getTestJsonResponse'),
-  'patch'    => array('\TestController', 'getTestJsonResponse'),
+  'GET'      => array('\TestController', 'getTestJsonResponse'),
+  'POST'     => array('\TestController', 'getTestJsonResponse'),
+  'PATCH'    => array('\TestController', 'getTestJsonResponse'),
 ));
 
 $router->addRoute(array(
   'path'     => '/v2/times/{dt}/episodes',
-  'get'      => array('\TestController', 'getTestJsonResponse'),
+  'GET'      => array('\TestController', 'getTestJsonResponse'),
 ));
 
 $router->addRoute(array(
@@ -49,7 +49,7 @@ $router->addRoute(array(
   'handlers' => array(
     'id'       => \Zaphpa\Constants::PATTERN_ALPHA,
   ),
-  'get'      => array('\TestController', 'getTestJsonResponse'),
+  'GET'      => array('\TestController', 'getTestJsonResponse'),
 ));
 
 $router->addRoute(array(
@@ -58,12 +58,12 @@ $router->addRoute(array(
     'user_id'  => \Zaphpa\Constants::PATTERN_NUM,
     'book_id'  => \Zaphpa\Constants::PATTERN_ALPHA,
   ),
-  'get'      => array('\TestController', 'getTestJsonResponse'),
+  'GET'      => array('\TestController', 'getTestJsonResponse'),
 ));
 
 $router->addRoute(array(
   'path'     => '/query_var_test',
-  'get'      => array('\TestController', 'getQueryVarTestJsonResponse'),
+  'GET'      => array('\TestController', 'getQueryVarTestJsonResponse'),
 ));
 
 

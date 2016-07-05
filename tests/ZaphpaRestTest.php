@@ -127,7 +127,7 @@ class ZaphpaRestTest extends ZaphpaTestCase {
                           ->get('/foo/bar');
     die(print_r($resp, true));
 
-    $this->assertEquals('get', $resp->method, 'Scoped BaseMiddleware test: Expected Middleware not to run.');
+    $this->assertEquals('GET', $resp->method, 'Scoped BaseMiddleware test: Expected Middleware not to run.');
     */
 
     $resp = (object) $this->request
@@ -150,14 +150,14 @@ class ZaphpaRestTest extends ZaphpaTestCase {
 
   public function test_middleware_cors() {
     // simulating preflighting
-    $resp = (object) $this->request->http_request('options', '/users');
+    $resp = (object) $this->request->http_request('OPTIONS', '/users');
     $resp->decoded = json_decode($resp->data);         
 
     $this->assertArrayHasKey('Access-Control-Allow-Origin', $resp->headers, 'CORS test: expected proper CORS headers to be set.');
     $this->assertEquals('*', $resp->headers['Access-Control-Allow-Origin'], 'CORS test: expected proper CORS headers to be set.');
 
     // simulating preflighting http_request($http_method, $uri, $_data = array())
-    $resp = (object) $this->request->http_request('options', '/users/123');
+    $resp = (object) $this->request->http_request('OPTIONS', '/users/123');
     $resp->decoded = json_decode($resp->data);             
     $this->assertArrayNotHasKey('Access-Control-Allow-Origin', $resp->headers, 'CORS test: expected CORS headers not to be set.');
   }
@@ -168,7 +168,7 @@ class ZaphpaRestTest extends ZaphpaTestCase {
                           ->post('/users/12345');
 
     $resp->decoded = json_decode($resp->data);
-    $this->assertEquals('patch', $resp->decoded->method, 'Method Override test: expected http method to be overriden in POST request.');
+    $this->assertEquals('PATCH', $resp->decoded->method, 'Method Override test: expected http method to be overriden in POST request.');
 
   }
   

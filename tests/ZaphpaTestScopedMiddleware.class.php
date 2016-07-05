@@ -4,18 +4,18 @@ class ZaphpaTestScopedMiddleware extends Zaphpa\BaseMiddleware {
   function preprocess(&$router) {
     $router->addRoute(array(
       'path'   => '/foo',
-      'get'    => array('TestController', 'getTestJsonResponse'),
-      'post'   => array('TestController', 'getTestJsonResponse'),
-      'put'    => array('TestController', 'getTestJsonResponse'),
-      'delete' => array('TestController', 'getTestJsonResponse'),
+      'GET'    => array('TestController', 'getTestJsonResponse'),
+      'POST'   => array('TestController', 'getTestJsonResponse'),
+      'PUT'    => array('TestController', 'getTestJsonResponse'),
+      'DELETE' => array('TestController', 'getTestJsonResponse'),
     ));
 
     $router->addRoute(array(
       'path'   => '/foo/bar',
-      'get'    => array('TestController', 'getTestJsonResponse'),
-      'post'   => array('TestController', 'getTestJsonResponse'),
-      'put'    => array('TestController', 'getTestJsonResponse'),
-      'delete' => array('TestController', 'getTestJsonResponse'),
+      'GET'    => array('TestController', 'getTestJsonResponse'),
+      'POST'   => array('TestController', 'getTestJsonResponse'),
+      'PUT'    => array('TestController', 'getTestJsonResponse'),
+      'DELETE' => array('TestController', 'getTestJsonResponse'),
     ));
   }
   

@@ -9,7 +9,7 @@ class Router {
     public static $middleware = array();
 
     /** Allowed HTTP Methods. Restricted to only common ones, for security reasons. **/
-    protected static $methods = array('get', 'post', 'put', 'patch', 'delete', 'head', 'options');
+    protected static $methods = array('GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS');
 
     /**
      * Add a new route to the configured list of routes
@@ -64,10 +64,10 @@ class Router {
     }
 
     /**
-     * Get lower-cased representation of current HTTP Request method
+     * Get current HTTP Request method, case sensitive
      */
     public static function getRequestMethod() {
-        return strtolower($_SERVER['REQUEST_METHOD']);
+        return $_SERVER['REQUEST_METHOD'];
     }
 
     /**
@@ -117,7 +117,7 @@ class Router {
 
         // None of the pre-defined routes matched. Is this a preflight request?
         // pre-flight request:
-        if (self::getRequestMethod() == "options") {
+        if (self::getRequestMethod() == "OPTIONS") {
             return $this->invoke_preflight($uri);
         }
 

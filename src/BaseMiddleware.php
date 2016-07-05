@@ -53,7 +53,7 @@ abstract class BaseMiddleware {
                 return false;
             }
 
-            if (!in_array(strtolower(self::$context['http_method']), array_map('strtolower', $methods))) {
+            if (!in_array(self::$context['http_method'], $methods)) {
                 return false;
             }
         } else {

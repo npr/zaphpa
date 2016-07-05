@@ -4,7 +4,7 @@ class ZaphpaTestMiddleware extends Zaphpa\BaseMiddleware {
   function preprocess(&$router) {
     $router->addRoute(array(
           'path'     => '/middlewaretest/{mid}',
-          'get'      => array('TestController', 'getTestJsonResponse'),
+          'GET'      => array('TestController', 'getTestJsonResponse'),
     ));
   }
   

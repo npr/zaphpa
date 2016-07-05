@@ -20,7 +20,7 @@ class AutoDocumentator extends \Zaphpa\BaseMiddleware {
   function preprocess(&$router) {
     $router->addRoute(array(
       'path' => $this->path,
-      'get'  => array('\Zaphpa\Middleware\AutoDocumentator', 'generateDocs'),
+      'GET'  => array('\Zaphpa\Middleware\AutoDocumentator', 'generateDocs'),
     ));
   }
 
